@@ -12,8 +12,36 @@
  */
 const updateText = () =>{
   // CODE GOES HERE
-  let userText = document.getElementById("text-input").value
-  document.getElementById('text-output').innerText = userText
+  let userText = document.getElementById("text-input").value;
+  
+  document.getElementById('text-output').innerText = userText;
+  
+  
+}
+
+
+
+const makerefresh = () =>{
+ 
+       document.getElementById("text-input").value = " ";
+       document.getElementById('text-output').innerText = " ";
+       
+       if(document.getElementById('bold').classList.contains('active'))
+       {
+           makeBold(bold);
+       }
+
+       if(document.getElementById('italic').classList.contains('active'))
+       {
+         makeItalic(italic);
+       }
+
+       if(document.getElementById('underline').classList.contains('active'))
+       {
+         makeUnderline(underline);
+       }
+       alignText();
+       
 }
 
 /**
@@ -56,7 +84,7 @@ const makeUnderline = (elem) =>{
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-const alignText =(elem, alignType) => {
+const alignText =(elem="", alignType="") => {
   // CODE GOES HERE
   document.getElementById('text-output').style.textAlign = alignType;
   buttonsList = document.getElementsByClassName("align")
@@ -70,3 +98,35 @@ const alignText =(elem, alignType) => {
  
   
 }
+
+
+function printInput()
+{
+      
+ 
+    var print_div = document.getElementById("text-output");
+    var print_area = window.open();
+    print_area.document.write(print_div.innerHTML);
+    print_area.document.close();
+    print_area.focus();
+    print_area.print();
+    print_area.close();
+
+}
+
+
+function copied() {
+  /* Get the text field */
+  var copyText = document.getElementById("text-input");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+

@@ -8,34 +8,53 @@
     <title>Simple Text Editor</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-  <body class="text-center container">
-    <main>
-        <h1 class="banner p-3 text-primary">TextEditor</h1>
+  <body>
+   
+    <main class="text-center container">
+        <h1 class="banner p-3 text-white">Text Editor</h1>
         <div class="row">
           <div class="col">
+            <button id="refresh" type="button" onclick="makerefresh()" class="btn btn-danger">New Document</button>
             <button id="bold" type="button" onclick="makeBold(this)" class="btn btn-light">Bold</button>
             <button id="italic" type="button" onclick="makeItalic(this)" class="btn btn-light">Italic</button>
             <button id="underline" type="button" onclick="makeUnderline(this)"  class="btn btn-light">Underline</button>
             <button id="left-align" type="button" onclick="alignText(this, 'left')" class="align btn btn-light"><i class="fas fa-align-left"></i></button>
             <button id="center-align" type="button" onclick="alignText(this, 'center')" class="align btn btn-light"><i class="fas fa-align-center"></i></button>
             <button id="right-align" type="button" onclick="alignText(this, 'right')" class="align btn btn-light"><i class="fas fa-align-right"></i></button>
+            <button id="" type="button" onclick="copied()" class="btn btn-primary m-1">Copy Formatted Text</button>
+            <button id="" type="button" onclick="printInput()" class="btn btn-danger m-1">Print</button>
           </div>
         </div>
-        <hr />
+        <hr  class="bg-light" />
         <div class="row editor">
           <div class="col">
             <div class="form-group">
-              <label for="text-input">Your Document Text</label>
-              <textarea class="form-control" id="text-input" rows="3" oninput="updateText()"></textarea>
+              <label for="text-input" class="text-white">Your Document Text</label>
+              <textarea class="form-control" id="text-input" rows="3" oninput="updateText(),updateselect()"></textarea>
           </div>
           </div>
           <div class="col">
-            <label for="text-output">Formatted Text</label>
-            <div id="text-output" class="bg-light">
+            <div>
+            <label for="text-output" class="text-white">Formatted Text</label>
+            </div>
+            <div  id="text-output" class="bg-light">
             </div>
           </div>
         </div>
+
+        <footer class="container">
+          <hr class="bg-light" />
+          <div class="text-white">
+              <h4>Created by Akash Khandelwal <i class="fas fa-heart"></i> </h4>
+          </div>
+   
+       </footer>
     </main>
+  
+   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e7008a" fill-opacity="1" d="M0,64L48,64C96,64,192,64,288,90.7C384,117,480,171,576,160C672,149,768,75,864,69.3C960,64,1056,128,1152,138.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+     
+
     <script src="script.js"></script>
   </body>
 </html>
