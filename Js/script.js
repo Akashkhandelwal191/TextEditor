@@ -10,19 +10,70 @@
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
  */
+
 const updateText = () =>{
   // CODE GOES HERE
   let userText = document.getElementById("text-input").value;
   
-  document.getElementById('text-output').innerText = userText;
+  if(userText.replace(/\s/g,"").length <=0)
+  {
+    document.getElementById('characters').innerText = 0;
+  }
+  else
+  {
+    document.getElementById('characters').innerText = userText.length;
   
+  }
+  document.getElementById('text-output').innerText = userText;  
   
 }
+
+document.getElementById("text-input").addEventListener('input',function(){
+ 
+
+  let element = document.getElementById('text-input').value;
+  if(element.replace(/\s/g,"").length <=0)
+  {
+    document.getElementById('words').innerText = 0;
+  }
+
+  else
+  {
+    let count = 1;
+    for(let i=0;i<=element.length;i++)
+    {  
+       if(element[i] == ' ')
+       {
+         document.getElementById('words').innerText = count;
+         count = count + 1;
+         
+       }
+     
+    }
+
+  }
+ 
+
+
+})
+
+
+
+
 
 
 
 const makerefresh = () =>{
  
+  document.getElementById('fontcolor').style.backgroundColor = "black";
+  document.getElementById('bgcolor').style.backgroundColor = "black";
+  document.getElementById("colorInputColor").value = "black";
+  document.getElementById("colorbgInputColor").value = "white";
+  document.getElementById('text-output').style.backgroundColor = "white";
+  document.getElementById('text-output').style.color = "black";
+  document.getElementById('characters').innerText = 0;
+  document.getElementById('words').innerText = 0;
+  
        document.getElementById("text-input").value = " ";
        document.getElementById('text-output').innerText = " ";
        
@@ -41,6 +92,9 @@ const makerefresh = () =>{
          makeUnderline(underline);
        }
        alignText();
+      
+     
+      
        
 }
 
@@ -117,6 +171,7 @@ function printInput()
 
 function copied() {
   /* Get the text field */
+
   var copyText = document.getElementById("text-input");
 
   /* Select the text field */
@@ -130,3 +185,20 @@ function copied() {
   alert("Copied the text: " + copyText.value);
 }
 
+
+document.getElementById('colorInputColor').addEventListener('change',function(){
+
+    let colo =  document.getElementById("colorInputColor").value;
+    document.getElementById('text-output').style.color = colo; 
+    document.getElementById('fontcolor').style.backgroundColor = colo;
+
+});
+
+
+document.getElementById('colorbgInputColor').addEventListener('change',function(){
+
+  let colo =  document.getElementById("colorbgInputColor").value;
+  document.getElementById('text-output').style.backgroundColor = colo; 
+  document.getElementById('bgcolor').style.backgroundColor = colo;
+
+});

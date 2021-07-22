@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
     <title>Simple Text Editor</title>
+    <link rel="shortcut icon" href="Images/editiorlogo.png" type="image/x-icon">
     <link href="Css/style.css" rel="stylesheet" type="text/css" />
+    
   </head>
   <body>
    
@@ -23,6 +25,8 @@
             <button id="right-align" type="button" onclick="alignText(this, 'right')" class="align btn btn-light"><i class="fas fa-align-right"></i></button>
             <button id="" type="button" onclick="copied()" class="btn btn-primary m-1">Copy Formatted Text</button>
             <button id="" type="button" onclick="printInput()" class="btn btn-danger m-1">Print</button>
+            <button id="fontcolor" type="button" class="btn btn-dark">Font Color <input type="color" id="colorInputColor"></button>
+            <button id="bgcolor" type="button" class="btn btn-dark">Background Color <input type="color" id="colorbgInputColor"></button>
           </div>
         </div>
         <hr  class="bg-light" />
@@ -30,27 +34,32 @@
           <div class="col">
             <div class="form-group">
               <label for="text-input" class="text-white">Your Document Text</label>
-              <textarea class="form-control" id="text-input" rows="3" oninput="updateText(),updateselect()"></textarea>
+              <textarea class="form-control" id="text-input" rows="3" oninput="updateText()"></textarea>
+              <div class="d-flex">
+                <div class="text-white">Characters:<span id="characters">0</span> </div>
+                <div class="ml-5 text-white">Words:<span id="words">0</span></div>
+              </div>
           </div>
           </div>
           <div class="col">
             <div>
             <label for="text-output" class="text-white">Formatted Text</label>
             </div>
-            <div  id="text-output" class="bg-light">
+            <div  id="text-output">
             </div>
           </div>
         </div>
+       
 
         <footer class="container">
           <hr class="bg-light" />
           <div class="SocialIcons2">
             <ul>
-              <li><img src="Images/facebook.svg" class="img-fluid" alt="" /></li>
-              <li><img src="Images/github.svg" class="img-fluid" alt="" /></li>
-              <li><img src="Images/instagram.svg" class="img-fluid" alt="" /></li>
-              <li><img src="Images/linkedin.svg" class="img-fluid" alt="" /></li>
-              <li><img src="Images/youtube.svg" class="img-fluid" alt="" /></li>
+              <li><a href="https://m.facebook.com/akash.khandelwal.1042?ref=bookmarks" target="newtab"><img src="Images/facebook.svg" class="img-fluid" alt="" /></a></li>
+              <li><a href="https://github.com/Akashkhandelwal191" target="newtab"><img src="Images/github.svg" class="img-fluid" alt="" /></a></li>
+              <li><a href="https://www.instagram.com/skykhandelwal1999" target="newtab"><img src="Images/instagram.svg" class="img-fluid" alt="" /></a></li>
+              <li><a href="https://www.linkedin.com/in/akash-khandelwal-5b09531aa" target="newtab"><img src="Images/linkedin.svg" class="img-fluid" alt="" /></a></li>
+              <li><a href="https://www.youtube.com/channel/UCW6rW8esjHbIMTccfbiJdPw" target="newtab"><img src="Images/youtube.svg" class="img-fluid" alt="" /></a></li>
             </ul>
           </div>
           <div class="text-center">
